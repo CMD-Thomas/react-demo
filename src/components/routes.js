@@ -1,4 +1,4 @@
-import Users from '../components/Users';
+import UsersContainer from '../components/Users/UsersContainer';
 import NotFound from '../components/NotFound';
 import notLoggedIn from '../components/notLoggedIn';
 import LoginFormContainer from '../components/LoginForm/LoginFormContainer';
@@ -22,7 +22,7 @@ const routes = [
   },
   {
     path: '/users',
-    component: Users,
+    component: UsersContainer,
   },
   {
     path: '/notloggedin',

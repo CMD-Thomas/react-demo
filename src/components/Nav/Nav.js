@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './navstyle.styl';
-import { Link } from 'react-router'
-import menuTop from '../../img/menu-top.png';
-import menuBottom from '../../img/menu-top.png';
-import menuMiddle from '../../img/menu-middle.png';
+import { Link } from 'react-router';
 
 
 const Nav = (props) => {
@@ -14,9 +11,6 @@ const Nav = (props) => {
           <div className="nav__dash nav__dash--top"></div>
           <div className="nav__dash nav__dash--middle"></div>
           <div className="nav__dash nav__dash--bottom"></div>
-          {/* <img src={menuTop} alt="menu-item" className="nav__top" />
-            <img src={menuMiddle} alt="menu-item" className="nav__middle" />
-            <img src={menuBottom} alt="menu-item" className="nav__bottom" /> */}
       </label>
       <h3 className="nav__title">{props.title}</h3>
       <ul className="nav__list">

@@ -18,10 +18,10 @@ class SingleBeerContainer extends React.Component {
   }
 
   saveBeerInState(data) {
-    console.log(data.data[0])
     this.setState({
       beer: data.data[0],
     });
+
   }
 
   render() {
@@ -32,7 +32,7 @@ class SingleBeerContainer extends React.Component {
     }
     return (
       <div>
-        <Nav title={"One Beer"} />
+        <Nav title={this.state.beer.name} />
         <SingleBeer beer={this.state.beer} />
       </div>
     );

@@ -7,9 +7,9 @@ import { Link } from 'react-router'
 const BeerList = (props) => {
   const beers = props.beers.map((beer) =>
     <Link to={'/beer/' + beer.id} key={beer.id}>
-      <li className="beers__item">
-        <span className="beers__name"> {beer.name} </span>
-        <span className="beers__stars"> {beer.stars} </span>
+      <li className="list__item">
+        <span className="list__item--half"> {beer.name} </span>
+        <span> {beer.stars} </span>
         <span className="beers__style"> {beer.style} </span>
       </li>
     </Link>
@@ -17,8 +17,8 @@ const BeerList = (props) => {
 
   return (
     <div className="container">
-      <ul className="beers">
-        <li className="beers__item" >
+      <ul className="list">
+        <li className="list__item">
           <span>Naam</span>
           <span>Sterren</span>
           <span className="beers__style">Stijl</span>
