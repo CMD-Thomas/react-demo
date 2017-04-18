@@ -24,7 +24,6 @@ export function get(url, token, callback) {
     callback(response.data);
   })
   .catch(error => {
-    console.log('error');
-    console.log(error);
+    callback(error);
   });
 }

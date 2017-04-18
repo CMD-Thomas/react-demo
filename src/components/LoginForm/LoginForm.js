@@ -27,7 +27,8 @@ const LoginForm = (props) => {
           />
           <label htmlFor="password">Password</label>
           <input type="submit" value="Submit" className="form__submit" />
-          <div className="form__register"><span>No account yet? <a href="">register here</a></span></div>
+          <div className="form__register"><span>No account yet? <a href="">register here</a>
+          </span></div>
         </div>
       </form>
 

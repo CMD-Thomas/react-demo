@@ -1,72 +1,59 @@
-import React from 'react';
-import notLoggedIn from '../notLoggedIn';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Users from './Users';
-import * as api from '../../api/api';
 import Nav from '../Nav/Nav';
+import { usersFetchData } from '../../actions/users';
 
+class UsersContainer extends Component {
 
-class UsersContainer extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.saveUsersInState = this.saveUsersInState.bind(this);
+  componentDidMount() {
     const token = localStorage.getItem('token');
-    this.state = {
-      token,
-      users: undefined
-    };
+    this.props.fetchData('http://localhost:3030/api/users', token);
   }
 
-  componentWillMount() {
-    const token = localStorage.token;
-    api.get('http://localhost:3030/api/users', token, this.saveUsersInState);
-  }
-
-  saveUsersInState(data) {
-    console.log(data);
-    this.setState({
-      users: data,
-    });
-  }
-
-
-  // render() {
-  //   if (!this.state.token) {
-  //     return (
-  //       <notLoggedIn />
-  //     );
-  //   } else if (this.state.users === undefined) {
-  //     return (
-  //       <div>
-  //         <p>No response yet</p>
-  //       </div>
-  //     );
-  //   } else {
-  //     return (
-  //       <div>
-  //         <Nav title={"All users"} />
-  //         <Users users={this.state.saveUsersInState} />
-  //       </div>
-  //     );
-  //   }
-  // }
   render() {
-    if (this.state.users === undefined) {
+
+    if (this.props.areLoading) {
       return (
-        <div>The response it not here yet!</div>
+        <p>Can't you see I'm loading? Leave me alone!</p>
       );
     }
+
+    if (this.props.haveErrored) {
+      return (
+        <p>Something went wrong.</p>
+      );
+    }
+
     return (
       <div>
         <Nav title={"All Users"} />
-        <Users users={this.state.users.users} />
+        <Users users={this.props.users} />
       </div>
     );
   }
 }
 
-export default UsersContainer;
+UsersContainer.propTypes = {
+  users: PropTypes.array.isRequired,
+  fetchData: PropTypes.func.isRequired,
+  haveErrored: PropTypes.bool.isRequired,
+  areLoading: PropTypes.bool.isRequired,
+};
 
+const mapStateToProps = (state) => {
+  return {
+    users: state.users.users,
+    haveErrored: state.hasErrored,
+    areLoading: state.areLoading,
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: (url, token) => dispatch(usersFetchData(url, token))
+  };
+};
 
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
 

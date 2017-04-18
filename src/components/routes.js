@@ -1,10 +1,8 @@
 import UsersContainer from '../components/Users/UsersContainer';
 import NotFound from '../components/NotFound';
-import notLoggedIn from '../components/notLoggedIn';
 import LoginFormContainer from '../components/LoginForm/LoginFormContainer';
 import BeersContainer from '../components/Beers/BeersContainer';
 import SingleBeerContainer from '../components/Beers/SingleBeerContainer';
-import EnsureLoggedInContainer from './EnsureLoggedInContainer';
 
 const routes = [
   {
@@ -14,7 +12,6 @@ const routes = [
   {
     path: '/beers',
     component: BeersContainer,
-    onEnter: EnsureLoggedInContainer,
   },
   {
     path: '/beer/:id',
@@ -23,10 +20,6 @@ const routes = [
   {
     path: '/users',
     component: UsersContainer,
-  },
-  {
-    path: '/notloggedin',
-    component: notLoggedIn,
   },
   {
     path: '*',

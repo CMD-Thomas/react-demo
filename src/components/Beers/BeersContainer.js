@@ -3,12 +3,6 @@ import BeersList from './BeersList';
 import Nav from '../Nav/Nav';
 import * as api from '../../api/api';
 
-
-
-// Container to fetch data and render subcomponent
-// Login dont handle errors for now
-// Gettoken
-
 class BeersContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +13,7 @@ class BeersContainer extends React.Component {
   }
 
   componentWillMount() {
-    const token = localStorage.token;
+    const token = localStorage.getItem('token');
     api.get('http://localhost:3030/api/beers', token, this.saveBeersInState);
   }
 

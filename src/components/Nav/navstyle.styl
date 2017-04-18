@@ -11,7 +11,7 @@ nav
 
 .nav__list
   transform translate(-100%)
-  // No idea where this 15px comes from
+  // No idea where this 14px comes from
   margin-top 14px
   height 100vh
   background-color #100f2b
@@ -40,7 +40,7 @@ nav
   
 .nav__dash
   position absolute
-  left 8px
+  left 15px
   margin-top 10px
   border-radius 5px
   width 100%
@@ -82,7 +82,14 @@ nav
   transform rotate(-45deg)
   
 .nav__title
+  overflow: hidden
   margin-top -20px
+  // Width of nav__toggle and extra space 
+  margin-right calc(45px+15px) 
+  // Width of nav__toggle (45px), the left of it (15px) and 10px extra spacing
+  margin-left calc(45px+15px+10px)
+  white-space nowrap
   text-align center
+  text-overflow: ellipsis
   color white
 

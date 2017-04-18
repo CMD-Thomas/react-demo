@@ -8,9 +8,9 @@ const Nav = (props) => {
     <nav>
       <input type="checkbox" id="checkbox_toggle" />
       <label htmlFor="checkbox_toggle" className="nav__toggle">
-          <div className="nav__dash nav__dash--top"></div>
-          <div className="nav__dash nav__dash--middle"></div>
-          <div className="nav__dash nav__dash--bottom"></div>
+        <div className="nav__dash nav__dash--top"></div>
+        <div className="nav__dash nav__dash--middle"></div>
+        <div className="nav__dash nav__dash--bottom"></div>
       </label>
       <h3 className="nav__title">{props.title}</h3>
       <ul className="nav__list">
