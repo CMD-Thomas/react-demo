@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './beers.styl';
 import { Link } from 'react-router';
 
 const BeerList = (props) => {
@@ -22,6 +21,7 @@ const BeerList = (props) => {
         </li>
         {beers}
       </ul>
+      <span className="icon-add"><span>+</span></span>
     </div>
   );
 };

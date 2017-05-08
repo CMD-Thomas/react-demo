@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import SingleBeer from './SingleBeer';
 import Nav from '../Nav/Nav';
 import * as api from '../../api/api';
 
-class SingleBeerContainer extends React.Component {
+class SingleBeerContainer extends Component {
   constructor(props) {
     super(props);
     this.saveBeerInState = this.saveBeerInState.bind(this);

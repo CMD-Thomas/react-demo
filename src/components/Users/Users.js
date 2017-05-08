@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import styles from './users-style';
 
 const Users = (props) => {
   const users = props.users.map((user, index) =>

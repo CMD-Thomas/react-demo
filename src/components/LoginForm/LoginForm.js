@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './LoginForm.styl';
 
 const LoginForm = (props) => {
   return (

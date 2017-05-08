@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import BeersList from './BeersList';
 import Nav from '../Nav/Nav';
 import * as api from '../../api/api';
 
-class BeersContainer extends React.Component {
+class BeersContainer extends Component {
   constructor(props) {
     super(props);
     this.saveBeersInState = this.saveBeersInState.bind(this);
@@ -18,6 +18,7 @@ class BeersContainer extends React.Component {
   }
 
   saveBeersInState(data) {
+    console.log(data);
     this.setState({
       beers: data.data,
     });

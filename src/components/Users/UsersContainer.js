@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
 import Nav from '../Nav/Nav';
-import { usersFetchData } from '../../actions/users';
+import { fetchData } from '../../actions/generalActions';
 
 class UsersContainer extends Component {
 
@@ -12,7 +12,6 @@ class UsersContainer extends Component {
   }
 
   render() {
-
     if (this.props.areLoading) {
       return (
         <p>Can't you see I'm loading? Leave me alone!</p>
@@ -43,15 +42,15 @@ UsersContainer.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users.users,
-    haveErrored: state.hasErrored,
+    users: state.items.items,
+    haveErrored: state.haveErrored,
     areLoading: state.areLoading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (url, token) => dispatch(usersFetchData(url, token))
+    fetchData: (url, token) => dispatch(fetchData(url, token)),
   };
 };
 
