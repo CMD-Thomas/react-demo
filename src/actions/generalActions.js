@@ -1,5 +1,3 @@
-
-//Grabbing any items
 export function areLoading(bool) {
   return {
     type: 'ARE_LOADING',
@@ -42,44 +40,44 @@ export function fetchData(url, token) {
   };
 }
 
-// Auth
-export function requestLogin() {
-  return {
-    type: 'LOGIN_REQUEST',
-    isFetching: true,
-    isAuthenticated: false,
-}
-
-export function receiveLogin(token) {
-  return {
-    type: 'LOGIN_SUCCESS',
-    isFetching: false,
-    isAuthenticated: true,
-  };
-}
-
-export function loginError(message) {
-  return {
-    type: 'LOGIN_FAILURE',
-    isFetching: false,
-    isAuthenticated: false,
-    message,
-  };
-}
-
-export function loginUser(url, name, password) {
-  return dispatch => {
-    dispatch(requestLogin());
-    axios.post(url, {
-      name,
-      password,
-    })
-    .then(response => {
-      localStorage.setItem('token', response.data.data);
-      dispatch(receiveLogin(response.data.data));
-    })
-    .catch(err => {
-      dispatch(loginError("error"));
-    });
-  };
-}
+// // Auth
+// export function requestLogin() {
+//   return {
+//     type: 'LOGIN_REQUEST',
+//     isFetching: true,
+//     isAuthenticated: false,
+// }
+//
+// export function receiveLogin(token) {
+//   return {
+//     type: 'LOGIN_SUCCESS',
+//     isFetching: false,
+//     isAuthenticated: true,
+//   };
+// }
+//
+// export function loginError(message) {
+//   return {
+//     type: 'LOGIN_FAILURE',
+//     isFetching: false,
+//     isAuthenticated: false,
+//     message,
+//   };
+// }
+//
+// export function loginUser(url, name, password) {
+//   return dispatch => {
+//     dispatch(requestLogin());
+//     axios.post(url, {
+//       name,
+//       password,
+//     })
+//     .then(response => {
+//       localStorage.setItem('token', response.data.data);
+//       dispatch(receiveLogin(response.data.data));
+//     })
+//     .catch(err => {
+//       dispatch(loginError("error"));
+//     });
+//   };
+// }

@@ -34,12 +34,13 @@ module.exports = {
     loaders: [
       {
         test: /\.html$/,
-        loader: "file?name=[name].[ext]"
+        loader: "file?name=[name].[ext]",
       },
       {
 
         test: /\.(js|jsx)/,
-        loaders: ["react-hot", "babel-loader"]
+        loaders: ["react-hot", "babel-loader"],
+        exclude: /node_modules/,
       },
       { 
         test: /\.styl$/, 
